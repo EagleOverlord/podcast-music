@@ -37,7 +37,6 @@ switch ($action) {
 
     case 'increase':
         if (isset($_SESSION['basket'][$product_id])) {
-            // make sure you cant add more than what is actually in stock
             $stmt = $conn->prepare("SELECT stock_quantity FROM products WHERE id = ?");
             $stmt->bind_param('i', $product_id);
             $stmt->execute();

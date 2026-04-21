@@ -5,7 +5,6 @@ requireProducer();
 $page_title  = 'Producer Dashboard';
 $producer_id = $_SESSION['user_id'];
 
-// Stats
 $active_orders = $conn->query(
     "SELECT COUNT(*) AS cnt FROM orders WHERE status IN ('ordered','processing')"
 )->fetch_assoc()['cnt'];
@@ -24,7 +23,6 @@ $low_stock->bind_param('i', $producer_id);
 $low_stock->execute();
 $low_stock_count = $low_stock->get_result()->fetch_assoc()['cnt'];
 
-// Monthly sales for chart (last 6 months)
 $monthly = $conn->query("
     SELECT DATE_FORMAT(o.created_at,'%b') AS month_name,
            DATE_FORMAT(o.created_at,'%Y-%m') AS month_key,
@@ -39,7 +37,6 @@ $monthly = $conn->query("
     LIMIT 6
 ")->fetch_all(MYSQLI_ASSOC);
 
-// Most popular products (by qty sold)
 $popular = $conn->prepare("
     SELECT p.name, p.image, COALESCE(SUM(oi.quantity),0) AS sold
     FROM products p
@@ -59,17 +56,14 @@ require_once '../includes/header.php';
 <div class="container">
 <div class="producer-layout">
 
-    <!-- Sidebar -->
     <?php include 'producer-sidebar.php'; ?>
 
-    <!-- Main -->
     <div>
         <div style="margin-bottom:22px;">
             <h1 style="font-size:1.6rem;font-weight:900;">Dashboard</h1>
             <p class="text-muted text-small">Welcome back, <?= htmlspecialchars($_SESSION['user_first_name']) ?>. Here's an overview of your hub.</p>
         </div>
 
-        <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Active Orders</div>
@@ -85,9 +79,7 @@ require_once '../includes/header.php';
             </div>
         </div>
 
-        <!-- Chart + Popular -->
         <div class="dash-bottom">
-            <!-- Sales Chart -->
             <div class="dash-card">
                 <div class="dash-card-title">Sales Summary</div>
                 <div class="chart-wrap">
@@ -95,7 +87,6 @@ require_once '../includes/header.php';
                 </div>
             </div>
 
-            <!-- Most Popular -->
             <div class="dash-card">
                 <div class="dash-card-title">Most Popular Products</div>
                 <div class="popular-grid">

@@ -44,7 +44,6 @@ require_once 'includes/header.php';
 <div class="container">
 <div class="account-layout">
 
-    <!-- Sidebar -->
     <aside class="account-sidebar">
         <div class="account-sidebar-header">
             <div class="account-sidebar-name"><?= htmlspecialchars($user['first_name'] . ' ' . $user['last_name']) ?></div>
@@ -66,7 +65,6 @@ require_once 'includes/header.php';
         </nav>
     </aside>
 
-    <!-- Main -->
     <div>
 
         <?php if ($tab === 'orders'): ?>

@@ -4,7 +4,6 @@ requireProducer();
 
 $page_title = 'Manage Orders';
 
-// Handle status update
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     $order_id  = (int)$_POST['order_id'];
     $new_status = $_POST['new_status'] ?? '';
@@ -17,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     redirect(BASE_URL . 'producer/orders.php');
 }
 
-// Filter by status
 $status_filter = $_GET['status'] ?? '';
 $where = '';
 $params = [];
@@ -58,7 +56,6 @@ require_once '../includes/header.php';
     <div>
         <h1 class="manage-heading">Edit and manage orders</h1>
 
-        <!-- Status filter tabs -->
         <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
             <a href="orders.php" class="btn btn-sm <?= !$status_filter ? 'btn-dark':'btn-outline' ?>">All</a>
             <a href="orders.php?status=ordered"    class="btn btn-sm <?= $status_filter==='ordered'    ? 'btn-dark':'btn-outline' ?>">Ordered</a>

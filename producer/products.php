@@ -5,7 +5,6 @@ requireProducer();
 $page_title  = 'Manage Products';
 $producer_id = $_SESSION['user_id'];
 
-// Handle delete
 if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     $del_id  = (int)$_GET['delete'];
     $del_chk = $conn->prepare("SELECT id FROM products WHERE id = ? AND producer_id = ?");
@@ -21,7 +20,6 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     redirect(BASE_URL . 'producer/products.php');
 }
 
-// Fetch products
 $stmt = $conn->prepare("SELECT p.*, c.name AS cat FROM products p
                         LEFT JOIN categories c ON p.category_id = c.id
                         WHERE p.producer_id = ?

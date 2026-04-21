@@ -21,7 +21,6 @@ if (!$product) {
 
 $page_title = $product['name'];
 
-// Related products (same category, exclude current)
 $rel_stmt = $conn->prepare("SELECT * FROM products WHERE category_id = ? AND id != ? LIMIT 3");
 $rel_stmt->bind_param('ii', $product['category_id'], $id);
 $rel_stmt->execute();
@@ -33,7 +32,6 @@ require_once 'includes/header.php';
 <div class="container">
     <div class="product-detail-layout">
 
-        <!-- Sidebar -->
         <aside class="product-detail-sidebar">
             <img src="<?= htmlspecialchars($product['image']) ?>"
                  alt="<?= htmlspecialchars($product['name']) ?>"
@@ -59,7 +57,6 @@ require_once 'includes/header.php';
             <?php endif; ?>
         </aside>
 
-        <!-- Main Content -->
         <div class="product-detail-main">
             <?php if ($product['category_name']): ?>
                 <div class="product-label"><?= htmlspecialchars($product['category_name']) ?></div>

@@ -2,15 +2,12 @@
 require_once 'includes/db.php';
 $page_title = 'Shop';
 
-// get all the categories so we can show them as checkboxes in the sidebar
 $categories = $conn->query("SELECT * FROM categories ORDER BY name")->fetch_all(MYSQLI_ASSOC);
 
-// build up the SQL query depending on which filters the user has applied
 $where    = ['1=1'];
 $params   = [];
 $types    = '';
 
-// if the user ticked any category checkboxes, filter by those categories
 $cat_filter = [];
 if (!empty($_GET['cat']) && is_array($_GET['cat'])) {
     $cat_filter = array_map('intval', $_GET['cat']);
@@ -22,7 +19,6 @@ if (!empty($_GET['cat']) && is_array($_GET['cat'])) {
     }
 }
 
-// if the user entered a min or max price, add those to the filter as well
 $price_min = isset($_GET['price_min']) ? (float)$_GET['price_min'] : null;
 $price_max = isset($_GET['price_max']) ? (float)$_GET['price_max'] : null;
 
@@ -53,7 +49,6 @@ if ($params) {
     $products = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
 }
 
-// work out what heading to show above the products
 if ($cat_filter && count($cat_filter) === 1) {
     $cat_names = array_column($categories, 'name', 'id');
     $heading   = $cat_names[$cat_filter[0]] ?? 'All Categories';
@@ -67,11 +62,9 @@ require_once 'includes/header.php';
 <div class="container">
     <div class="shop-layout">
 
-        <!-- Sidebar -->
         <aside class="shop-sidebar">
             <form method="GET" action="shop.php" id="filter-form">
 
-                <!-- Categories -->
                 <div class="sidebar-section">
                     <div class="sidebar-title">Category</div>
                     <?php foreach ($categories as $cat): ?>
@@ -84,7 +77,6 @@ require_once 'includes/header.php';
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Price -->
                 <div class="sidebar-section">
                     <div class="sidebar-title">Price</div>
                     <div class="price-inputs">
@@ -110,7 +102,6 @@ require_once 'includes/header.php';
             </form>
         </aside>
 
-        <!-- Products -->
         <div>
             <div class="shop-header">
                 <h1 class="section-title" style="margin-bottom:0;"><?= htmlspecialchars($heading) ?></h1>
