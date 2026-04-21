@@ -12,7 +12,45 @@ $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const base = <?= json_encode(BASE_URL . 'assets/assets/icons/') ?>;
+            const iconMap = {
+                inventory_2: 'inventory',
+                location_on: 'location'
+            };
+
+            document.querySelectorAll('span.material-icons').forEach((iconEl) => {
+                if (iconEl.dataset.localIcon === '1') return;
+
+                const iconName = iconEl.textContent.trim();
+                if (!iconName) return;
+
+                const mappedName = iconMap[iconName] || iconName;
+                const iconSrc = `${base}${encodeURIComponent(mappedName)}.svg`;
+                const fallbackSrc = `${base}${encodeURIComponent(iconName)}.svg`;
+
+                iconEl.textContent = '';
+                iconEl.dataset.localIcon = '1';
+
+                const img = document.createElement('img');
+                img.src = iconSrc;
+                img.alt = '';
+                img.setAttribute('aria-hidden', 'true');
+
+                img.onerror = () => {
+                    if (img.src !== fallbackSrc) {
+                        img.src = fallbackSrc;
+                        return;
+                    }
+                    iconEl.classList.add('icon-missing');
+                    iconEl.textContent = iconName.replace(/_/g, ' ');
+                };
+
+                iconEl.appendChild(img);
+            });
+        });
+    </script>
 </head>
 <body>
 
