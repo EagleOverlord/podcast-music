@@ -33,7 +33,6 @@ if ($order_id) {
     }
 }
 
-// work out which step of the progress bar to highlight based on the order status
 $step_map = ['ordered' => 0, 'processing' => 1, 'delivered' => 2];
 $current_step = $order ? ($step_map[$order['status']] ?? 0) : 0;
 
@@ -56,7 +55,6 @@ require_once 'includes/header.php';
 
     <h1 style="font-size:1.7rem;font-weight:900;margin-bottom:20px;">Track Your Order</h1>
 
-    <!-- form where the user types in their order number -->
     <div class="track-card" style="margin-bottom:18px;">
         <form method="POST" action="track-order.php" style="display:flex;gap:12px;align-items:flex-end;">
             <div style="flex:1;">
@@ -82,7 +80,6 @@ require_once 'includes/header.php';
 
     <?php if ($order): ?>
 
-    <!-- card showing the order reference and progress bar -->
     <div class="track-card">
         <div class="track-order-ref">Order #<?= str_pad($order['id'], 3, '0', STR_PAD_LEFT) ?></div>
         <h2 class="track-heading">Track Your Order</h2>
@@ -104,7 +101,6 @@ require_once 'includes/header.php';
         </div>
     </div>
 
-    <!-- card showing the full details of the order -->
     <div class="track-card">
         <h3 style="font-weight:900;font-size:1.1rem;margin-bottom:18px;">Order Details</h3>
 
@@ -133,7 +129,6 @@ require_once 'includes/header.php';
             <?php endif; ?>
         </div>
 
-        <!-- table listing all the items in the order -->
         <table class="order-items-table">
             <thead>
                 <tr>
@@ -161,7 +156,6 @@ require_once 'includes/header.php';
         </div>
     </div>
 
-    <!-- lets the user change the delivery type if the order hasnt been delivered yet -->
     <?php if ($order['status'] !== 'delivered'): ?>
     <div class="track-card">
         <h3 style="font-weight:900;font-size:1rem;margin-bottom:14px;">Edit Order</h3>

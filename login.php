@@ -1,7 +1,6 @@
 <?php
 require_once 'includes/db.php';
 
-// if the user is already logged in, send them to the right page
 if (isLoggedIn()) {
     redirect(BASE_URL . (isProducer() ? 'producer/dashboard.php' : 'account.php'));
 }
@@ -21,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         $user = $stmt->get_result()->fetch_assoc();
 
-        // compare the password directly - no encryption needed for this project
         if ($user && $password === $user['password']) {
             $_SESSION['user_id']         = $user['id'];
             $_SESSION['user_email']      = $user['email'];

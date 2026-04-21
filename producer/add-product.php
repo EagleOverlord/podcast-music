@@ -7,7 +7,6 @@ $edit_id     = (int)($_GET['edit'] ?? 0);
 $product     = null;
 $error       = '';
 
-// Load product for editing
 if ($edit_id) {
     $s = $conn->prepare("SELECT * FROM products WHERE id = ? AND producer_id = ?");
     $s->bind_param('ii', $edit_id, $producer_id);
@@ -22,7 +21,6 @@ if ($edit_id) {
 $page_title = $product ? 'Edit Product' : 'Add Product';
 $categories = $conn->query("SELECT * FROM categories ORDER BY name")->fetch_all(MYSQLI_ASSOC);
 
-// Handle form submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name        = trim($_POST['name']        ?? '');
     $description = trim($_POST['description'] ?? '');
@@ -34,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$name || $price <= 0 || !$category_id) {
         $error = 'Please fill in all required fields.';
     } else {
-        // Handle image upload
         $image_path = $product['image'] ?? '';
 
         if (!empty($_FILES['image']['name'])) {
@@ -59,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!$error) {
             if ($product) {
-                // Update existing product
                 $upd = $conn->prepare(
                     "UPDATE products SET name=?, description=?, price=?, image=?, category_id=?, stock_quantity=?, featured=? WHERE id=? AND producer_id=?"
                 );
@@ -67,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $upd->execute();
                 flash('Product updated successfully.', 'success');
             } else {
-                // Insert
                 $ins = $conn->prepare(
                     "INSERT INTO products (name, description, price, image, category_id, producer_id, stock_quantity, featured) VALUES (?,?,?,?,?,?,?,?)"
                 );
