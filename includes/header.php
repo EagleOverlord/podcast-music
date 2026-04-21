@@ -2,7 +2,13 @@
 $basket_count = getBasketCount();
 $current_page = basename($_SERVER['PHP_SELF']);
 $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
-$icons_relative_path = is_dir(__DIR__ . '/../assets/icons') ? 'assets/icons/' : 'assets/assets/icons/';
+$icons_relative_path = 'assets/icons/';
+foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
+    if (is_dir(__DIR__ . '/../' . $candidate_path)) {
+        $icons_relative_path = $candidate_path;
+        break;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +47,7 @@ $icons_relative_path = is_dir(__DIR__ . '/../assets/icons') ? 'assets/icons/' : 
                 img.setAttribute('aria-hidden', 'true');
 
                 img.onerror = () => {
-                    if (needsFallback && img.src !== fallbackSrc) {
+                    if (needsFallback && img.getAttribute('src') !== fallbackSrc) {
                         img.src = fallbackSrc;
                         return;
                     }
