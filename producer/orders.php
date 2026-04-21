@@ -68,7 +68,7 @@ require_once '../includes/header.php';
 
         <?php if (empty($orders)): ?>
         <div class="empty-state">
-            <span class="material-icons">assignment</span>
+            <span class="material-icons">📋</span>
             <h3>No orders found</h3>
             <p>Orders will appear here once customers place them.</p>
         </div>
@@ -108,11 +108,11 @@ require_once '../includes/header.php';
                                 <option value="delivered"  <?= $o['status']==='delivered'  ? 'selected':'' ?>>Delivered</option>
                             </select>
                             <button type="submit" class="icon-btn icon-btn-edit" title="Update">
-                                <span class="material-icons">save</span>
+                                <span class="material-icons">💾</span>
                             </button>
                             <a href="<?= BASE_URL ?>track-order.php?order=<?= $o['id'] ?>"
                                class="icon-btn icon-btn-edit" title="View order" target="_blank">
-                                <span class="material-icons">open_in_new</span>
+                                <span class="material-icons">↗️</span>
                             </a>
                         </form>
                     </td>

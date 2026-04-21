@@ -66,7 +66,7 @@ require_once 'includes/header.php';
                        value="<?= $order_id ?: '' ?>" style="max-width:200px;">
             </div>
             <button type="submit" class="btn btn-primary">
-                <span class="material-icons">search</span> Track
+                <span class="material-icons">🔎</span> Track
             </button>
         </form>
         <?php if ($error): ?>
@@ -176,7 +176,7 @@ require_once 'includes/header.php';
                 </select>
             </div>
             <button type="submit" class="btn btn-dark" style="margin-top:18px;">
-                <span class="material-icons">save</span> Update Order
+                <span class="material-icons">💾</span> Update Order
             </button>
         </form>
     </div>

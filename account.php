@@ -52,16 +52,16 @@ require_once 'includes/header.php';
         </div>
         <nav>
             <a href="account.php?tab=orders" class="account-nav-link <?= $tab==='orders' ? 'active':'' ?>">
-                <span class="material-icons">inventory_2</span> My Orders
+                <span class="material-icons">📦</span> My Orders
             </a>
             <a href="account.php?tab=profile" class="account-nav-link <?= $tab==='profile' ? 'active':'' ?>">
-                <span class="material-icons">person</span> My Details
+                <span class="material-icons">👤</span> My Details
             </a>
             <a href="shop.php" class="account-nav-link">
-                <span class="material-icons">storefront</span> Browse Products
+                <span class="material-icons">🏪</span> Browse Products
             </a>
             <a href="logout.php" class="account-nav-link" style="border-top:1px solid rgba(255,255,255,.1);margin-top:8px;">
-                <span class="material-icons">logout</span> Log Out
+                <span class="material-icons">🚪</span> Log Out
             </a>
         </nav>
     </aside>
@@ -74,7 +74,7 @@ require_once 'includes/header.php';
             <h2 class="account-card-title">My Orders</h2>
             <?php if (empty($orders)): ?>
             <div class="empty-state" style="padding:40px 0;">
-                <span class="material-icons">inventory_2</span>
+                <span class="material-icons">📦</span>
                 <h3>No orders yet</h3>
                 <p>Start shopping to see your orders here.</p>
                 <a href="shop.php" class="btn btn-primary">Browse Products</a>
@@ -101,7 +101,7 @@ require_once 'includes/header.php';
                         <td style="font-weight:700;color:var(--green-primary);"><?= formatPrice($o['total_price']) ?></td>
                         <td>
                             <a href="track-order.php?order=<?= $o['id'] ?>" class="icon-btn icon-btn-edit">
-                                <span class="material-icons">search</span> Track
+                                <span class="material-icons">🔎</span> Track
                             </a>
                         </td>
                     </tr>
@@ -116,10 +116,10 @@ require_once 'includes/header.php';
             <h2 class="account-card-title">My Details</h2>
 
             <?php if ($success): ?>
-                <div class="alert alert-success"><span class="material-icons" style="font-size:16px;vertical-align:middle;">check</span> <?= htmlspecialchars($success) ?></div>
+                <div class="alert alert-success"><span class="material-icons" style="font-size:16px;vertical-align:middle;">✅</span> <?= htmlspecialchars($success) ?></div>
             <?php endif; ?>
             <?php if ($error): ?>
-                <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">error</span> <?= htmlspecialchars($error) ?></div>
+                <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">⚠️</span> <?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
 
             <form method="POST" action="account.php?tab=profile">
@@ -148,7 +148,7 @@ require_once 'includes/header.php';
                               placeholder="Your default delivery address"><?= htmlspecialchars($user['address'] ?? '') ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">
-                    <span class="material-icons">save</span> Save Changes
+                    <span class="material-icons">💾</span> Save Changes
                 </button>
             </form>
         </div>

@@ -56,7 +56,7 @@ require_once 'includes/header.php';
         <h1 class="auth-title">Login</h1>
 
         <?php if ($error): ?>
-            <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">error</span> <?= htmlspecialchars($error) ?></div>
+            <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">⚠️</span> <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
         <form method="POST" action="">
@@ -78,7 +78,7 @@ require_once 'includes/header.php';
             </div>
 
             <button type="submit" class="btn btn-primary btn-full btn-lg">
-                <span class="material-icons">lock</span> Login
+                <span class="material-icons">🔒</span> Login
             </button>
         </form>
 

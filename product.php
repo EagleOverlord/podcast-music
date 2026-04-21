@@ -84,25 +84,25 @@ require_once 'includes/header.php';
 
                 <div class="stock-info <?= $product['stock_quantity'] < 10 ? 'low' : '' ?>">
                     <?php if ($product['stock_quantity'] < 10): ?>
-                        <span class="material-icons" style="font-size:16px;vertical-align:middle;">warning</span> Only <?= $product['stock_quantity'] ?> left in stock
+                        <span class="material-icons" style="font-size:16px;vertical-align:middle;">⚠️</span> Only <?= $product['stock_quantity'] ?> left in stock
                     <?php else: ?>
-                        <span class="material-icons" style="font-size:16px;vertical-align:middle;">check_circle</span> In stock (<?= $product['stock_quantity'] ?> available)
+                        <span class="material-icons" style="font-size:16px;vertical-align:middle;">✅</span> In stock (<?= $product['stock_quantity'] ?> available)
                     <?php endif; ?>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg" style="margin-top:20px;">
-                    <span class="material-icons">shopping_basket</span> Add to Basket
+                    <span class="material-icons">🧺</span> Add to Basket
                 </button>
             </form>
             <?php else: ?>
             <div class="alert alert-error" style="margin-top:16px;">
-                <span class="material-icons" style="font-size:16px;vertical-align:middle;">cancel</span> Out of stock — check back soon.
+                <span class="material-icons" style="font-size:16px;vertical-align:middle;">❌</span> Out of stock — check back soon.
             </div>
             <?php endif; ?>
 
             <div style="margin-top:24px;">
                 <a href="shop.php" class="btn btn-outline btn-sm">
-                    <span class="material-icons">arrow_back</span> Back to Shop
+                    <span class="material-icons">←</span> Back to Shop
                 </a>
             </div>
         </div>

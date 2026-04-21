@@ -18,7 +18,7 @@ require_once 'includes/header.php';
             <h1>Eat Fresh and<br>Buy Local</h1>
             <p>Supporting local farmers &amp; bringing the freshest produce straight to your door.</p>
             <a href="shop.php" class="btn btn-primary btn-lg">
-                <span class="material-icons">storefront</span> Shop Now
+                <span class="material-icons">🏪</span> Shop Now
             </a>
         </div>
     </section>

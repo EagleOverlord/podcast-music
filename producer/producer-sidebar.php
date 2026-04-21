@@ -9,27 +9,27 @@ $current = basename($_SERVER['PHP_SELF']);
     <nav>
         <a href="<?= BASE_URL ?>producer/dashboard.php"
            class="producer-nav-link <?= $current==='dashboard.php' ? 'active':'' ?>">
-            <span class="material-icons">bar_chart</span> Dashboard
+            <span class="material-icons">📊</span> Dashboard
         </a>
         <a href="<?= BASE_URL ?>producer/products.php"
            class="producer-nav-link <?= $current==='products.php' ? 'active':'' ?>">
-            <span class="material-icons">inventory_2</span> My Products
+            <span class="material-icons">📦</span> My Products
         </a>
         <a href="<?= BASE_URL ?>producer/orders.php"
            class="producer-nav-link <?= $current==='orders.php' ? 'active':'' ?>">
-            <span class="material-icons">assignment</span> Orders
+            <span class="material-icons">📋</span> Orders
         </a>
         <a href="<?= BASE_URL ?>producer/add-product.php"
            class="producer-nav-link <?= $current==='add-product.php' ? 'active':'' ?>">
-            <span class="material-icons">add</span> Add Product
+            <span class="material-icons">➕</span> Add Product
         </a>
         <a href="<?= BASE_URL ?>shop.php" class="producer-nav-link">
-            <span class="material-icons">storefront</span> View Shop
+            <span class="material-icons">🏪</span> View Shop
         </a>
         <a href="<?= BASE_URL ?>logout.php"
            class="producer-nav-link"
            style="border-top:1px solid rgba(255,255,255,.1);margin-top:8px;">
-            <span class="material-icons">logout</span> Log Out
+            <span class="material-icons">🚪</span> Log Out
         </a>
     </nav>
 </aside>

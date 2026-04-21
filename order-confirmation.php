@@ -19,7 +19,7 @@ require_once 'includes/header.php';
 <div class="confirm-wrapper">
 
     <div class="confirm-icon">
-        <span class="material-icons">check</span>
+        <span class="material-icons">✅</span>
     </div>
 
     <h1 style="font-size:2rem;font-weight:900;margin-bottom:10px;">Order Confirmed!</h1>
@@ -60,11 +60,11 @@ require_once 'includes/header.php';
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <?php if ($order_id): ?>
         <a href="track-order.php?order=<?= $order_id ?>" class="btn btn-primary">
-            <span class="material-icons">location_on</span> Track My Order
+            <span class="material-icons">📍</span> Track My Order
         </a>
         <?php endif; ?>
         <a href="shop.php" class="btn btn-secondary">
-            <span class="material-icons">storefront</span> Continue Shopping
+            <span class="material-icons">🏪</span> Continue Shopping
         </a>
     </div>
 

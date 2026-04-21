@@ -103,7 +103,7 @@ require_once 'includes/header.php';
                 <?php if ($cat_filter || $price_min !== null || $price_max): ?>
                 <div class="sidebar-section">
                     <a href="shop.php" class="btn btn-outline btn-sm btn-full">
-                        <span class="material-icons">close</span> Clear Filters
+                        <span class="material-icons">✖️</span> Clear Filters
                     </a>
                 </div>
                 <?php endif; ?>
@@ -119,7 +119,7 @@ require_once 'includes/header.php';
 
             <?php if (empty($products)): ?>
             <div class="empty-state">
-                <span class="material-icons">search</span>
+                <span class="material-icons">🔎</span>
                 <h3>No products found</h3>
                 <p>Try adjusting your filters or <a href="shop.php" class="form-link">browse all products</a>.</p>
             </div>

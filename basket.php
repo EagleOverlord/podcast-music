@@ -15,10 +15,10 @@ require_once 'includes/header.php';
 
     <?php if (empty($basket)): ?>
     <div class="empty-state">
-        <span class="material-icons">shopping_basket</span>
+        <span class="material-icons">🧺</span>
         <h3>Your basket is empty</h3>
         <p>Browse our fresh local produce and add something delicious.</p>
-        <a href="shop.php" class="btn btn-primary"><span class="material-icons">storefront</span> Browse Products</a>
+        <a href="shop.php" class="btn btn-primary"><span class="material-icons">🏪</span> Browse Products</a>
     </div>
     <?php else: ?>
 
@@ -70,7 +70,7 @@ require_once 'includes/header.php';
                         <input type="radio" name="delivery_type" value="pickup"
                                <?= $delivery_type === 'pickup' ? 'checked' : '' ?>
                                onchange="this.form.submit()">
-                        <span class="delivery-option-icon"><span class="material-icons">storefront</span></span>
+                        <span class="delivery-option-icon"><span class="material-icons">🏪</span></span>
                         <span>Pickup</span>
                     </label>
 
@@ -78,7 +78,7 @@ require_once 'includes/header.php';
                         <input type="radio" name="delivery_type" value="delivery"
                                <?= $delivery_type === 'delivery' ? 'checked' : '' ?>
                                onchange="this.form.submit()">
-                        <span class="delivery-option-icon"><span class="material-icons">local_shipping</span></span>
+                        <span class="delivery-option-icon"><span class="material-icons">🚚</span></span>
                         <span>Delivery</span>
                     </label>
                 </form>
@@ -100,7 +100,7 @@ require_once 'includes/header.php';
                 </div>
 
                 <a href="checkout.php" class="btn btn-primary btn-full btn-lg" style="margin-top:16px;">
-                    <span class="material-icons">lock</span> Proceed to Checkout
+                    <span class="material-icons">🔒</span> Proceed to Checkout
                 </a>
             </div>
         </div>

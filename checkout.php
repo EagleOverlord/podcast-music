@@ -32,7 +32,7 @@ require_once 'includes/header.php';
         <div>
             <div class="checkout-card" id="address-section"
                  style="<?= $delivery_type === 'pickup' ? 'display:none;' : '' ?>">
-                <h2 class="checkout-heading"><span class="material-icons">location_on</span> Delivery Address</h2>
+                <h2 class="checkout-heading"><span class="material-icons">📍</span> Delivery Address</h2>
                 <div class="form-group">
                     <label class="form-label" for="delivery_address">Full address:</label>
                     <textarea class="form-input" id="delivery_address" name="delivery_address"
@@ -41,9 +41,9 @@ require_once 'includes/header.php';
             </div>
 
             <div class="checkout-card">
-                <h2 class="checkout-heading"><span class="material-icons">credit_card</span> Payment Details</h2>
+                <h2 class="checkout-heading"><span class="material-icons">💳</span> Payment Details</h2>
                 <p style="font-size:.82rem;color:var(--text-mid);margin-bottom:18px;">
-                    <span class="material-icons" style="font-size:16px;vertical-align:middle;">info</span> This is a prototype — no real payment is taken.
+                    <span class="material-icons" style="font-size:16px;vertical-align:middle;">ℹ️</span> This is a prototype — no real payment is taken.
                 </p>
 
                 <form action="checkout-process.php" method="POST" id="checkout-form">
@@ -90,7 +90,7 @@ require_once 'includes/header.php';
                     <?php endif; ?>
 
                     <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:6px;">
-                        <span class="material-icons">lock</span> Place Order — <?= formatPrice($total) ?>
+                        <span class="material-icons">🔒</span> Place Order — <?= formatPrice($total) ?>
                     </button>
                 </form>
             </div>
@@ -98,7 +98,7 @@ require_once 'includes/header.php';
 
         <div>
             <div class="checkout-card">
-                <h2 class="checkout-heading"><span class="material-icons">receipt</span> Order Summary</h2>
+                <h2 class="checkout-heading"><span class="material-icons">🧾</span> Order Summary</h2>
 
                 <?php foreach ($basket as $item): ?>
                 <div class="summary-row">
@@ -121,7 +121,7 @@ require_once 'includes/header.php';
 
             <div style="margin-top:12px;">
                 <a href="basket.php" class="btn btn-outline btn-sm">
-                    <span class="material-icons">arrow_back</span> Back to Basket
+                    <span class="material-icons">←</span> Back to Basket
                 </a>
             </div>
         </div>

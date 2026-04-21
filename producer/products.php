@@ -43,7 +43,7 @@ require_once '../includes/header.php';
 
         <?php if (empty($products)): ?>
         <div class="empty-state">
-            <span class="material-icons">inventory_2</span>
+            <span class="material-icons">📦</span>
             <h3>No products yet</h3>
             <p>Add your first product to get started.</p>
         </div>
@@ -76,12 +76,12 @@ require_once '../includes/header.php';
 
             <div class="product-row-actions" style="grid-column:4;">
                 <a href="add-product.php?edit=<?= $p['id'] ?>" class="icon-btn icon-btn-edit">
-                    <span class="material-icons">edit</span> Edit
+                    <span class="material-icons">✏️</span> Edit
                 </a>
                 <a href="products.php?delete=<?= $p['id'] ?>"
                    class="icon-btn icon-btn-delete"
                    onclick="return confirm('Delete <?= htmlspecialchars($p['name'], ENT_QUOTES) ?>?')">
-                    <span class="material-icons">delete</span>
+                    <span class="material-icons">🗑️</span>
                 </a>
             </div>
         </div>
@@ -89,7 +89,7 @@ require_once '../includes/header.php';
         <?php endif; ?>
 
         <a href="add-product.php" class="add-product-btn">
-            <span class="material-icons">add</span> Add New Product/s
+            <span class="material-icons">➕</span> Add New Product/s
         </a>
     </div>
 

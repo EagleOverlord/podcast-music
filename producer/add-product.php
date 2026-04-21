@@ -92,7 +92,7 @@ require_once '../includes/header.php';
         <h1 class="manage-heading"><?= $product ? 'Edit Product' : 'Add New Product' ?></h1>
 
         <?php if ($error): ?>
-        <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">error</span> <?= htmlspecialchars($error) ?></div>
+        <div class="alert alert-error"><span class="material-icons" style="font-size:16px;vertical-align:middle;">⚠️</span> <?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
         <form method="POST" enctype="multipart/form-data">
@@ -174,7 +174,7 @@ require_once '../includes/header.php';
 
             <div style="display:flex;gap:12px;margin-top:6px;">
                 <button type="submit" class="btn btn-primary btn-lg">
-                    <span class="material-icons">save</span> <?= $product ? 'Save Changes' : 'Add Product' ?>
+                    <span class="material-icons">💾</span> <?= $product ? 'Save Changes' : 'Add Product' ?>
                 </button>
                 <a href="products.php" class="btn btn-outline">Cancel</a>
             </div>
