@@ -12,7 +12,7 @@ $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
     <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL,wght,GRAD,opsz@0,400,0,24" rel="stylesheet">
 </head>
 <body>
 
