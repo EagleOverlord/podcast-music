@@ -2,6 +2,7 @@
 $basket_count = getBasketCount();
 $current_page = basename($_SERVER['PHP_SELF']);
 $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
+$icons_relative_path = is_dir(__DIR__ . '/../assets/icons') ? 'assets/icons/' : 'assets/assets/icons/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const base = <?= json_encode(BASE_URL . 'assets/assets/icons/') ?>;
+            const base = <?= json_encode(BASE_URL . $icons_relative_path) ?>;
             const iconMap = {
                 inventory_2: 'inventory',
                 location_on: 'location'
@@ -28,7 +29,8 @@ $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
 
                 const mappedName = iconMap[iconName] || iconName;
                 const iconSrc = `${base}${encodeURIComponent(mappedName)}.svg`;
-                const fallbackSrc = `${base}${encodeURIComponent(iconName)}.svg`;
+                const needsFallback = mappedName !== iconName;
+                const fallbackSrc = needsFallback ? `${base}${encodeURIComponent(iconName)}.svg` : '';
 
                 iconEl.textContent = '';
                 iconEl.dataset.localIcon = '1';
@@ -39,7 +41,7 @@ $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
                 img.setAttribute('aria-hidden', 'true');
 
                 img.onerror = () => {
-                    if (img.src !== fallbackSrc) {
+                    if (needsFallback && img.src !== fallbackSrc) {
                         img.src = fallbackSrc;
                         return;
                     }
