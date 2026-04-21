@@ -3,6 +3,7 @@ $basket_count = getBasketCount();
 $current_page = basename($_SERVER['PHP_SELF']);
 $current_dir  = basename(dirname($_SERVER['PHP_SELF']));
 $icons_relative_path = 'assets/icons/';
+// Keep both candidates because this repository may contain either layout.
 foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
     if (is_dir(__DIR__ . '/../' . $candidate_path)) {
         $icons_relative_path = $candidate_path;
@@ -37,6 +38,7 @@ foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
                 const iconSrc = `${base}${encodeURIComponent(mappedName)}.svg`;
                 const needsFallback = mappedName !== iconName;
                 const fallbackSrc = needsFallback ? `${base}${encodeURIComponent(iconName)}.svg` : '';
+                let fallbackAttempted = false;
 
                 iconEl.textContent = '';
                 iconEl.dataset.localIcon = '1';
@@ -47,7 +49,8 @@ foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
                 img.setAttribute('aria-hidden', 'true');
 
                 img.onerror = () => {
-                    if (needsFallback && img.getAttribute('src') !== fallbackSrc) {
+                    if (needsFallback && !fallbackAttempted) {
+                        fallbackAttempted = true;
                         img.src = fallbackSrc;
                         return;
                     }
