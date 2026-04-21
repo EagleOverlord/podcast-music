@@ -23,6 +23,7 @@ foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const base = <?= json_encode(BASE_URL . $icons_relative_path) ?>;
+            const validIconName = /^[a-z0-9_]+$/i;
             const iconMap = {
                 inventory_2: 'inventory',
                 location_on: 'location'
@@ -35,6 +36,10 @@ foreach (['assets/icons/', 'assets/assets/icons/'] as $candidate_path) {
                 if (!iconName) return;
 
                 const mappedName = iconMap[iconName] || iconName;
+                if (!validIconName.test(mappedName) || !validIconName.test(iconName)) {
+                    iconEl.classList.add('icon-missing');
+                    return;
+                }
                 const iconSrc = `${base}${encodeURIComponent(mappedName)}.svg`;
                 const needsFallback = mappedName !== iconName;
                 const fallbackSrc = needsFallback ? `${base}${encodeURIComponent(iconName)}.svg` : '';
