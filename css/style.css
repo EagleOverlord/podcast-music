@@ -25,7 +25,7 @@ img  { max-width: 100%; display: block; }
 button, input, select, textarea { font-family: inherit; }
 
 .material-icons {
-    font-family: 'Material Symbols Outlined', 'Material Icons', sans-serif;
+    font-family: 'Material Symbols Outlined', 'Material Icons';
     font-weight: normal;
     font-style: normal;
     line-height: 1;
@@ -37,7 +37,6 @@ button, input, select, textarea { font-family: inherit; }
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
