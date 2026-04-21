@@ -1,4 +1,6 @@
 :root {
+    --icon-size: 1em;
+    --icon-fallback-size: .75em;
     --green: #3d7a3d;
     --green-dark: #2d5a2d;
     --green-deeper: #1e3d1e;
@@ -23,6 +25,17 @@ main { flex: 1; }
 a    { text-decoration: none; color: inherit; }
 img  { max-width: 100%; display: block; }
 button, input, select, textarea { font-family: inherit; }
+.material-icons {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    line-height: 1;
+    vertical-align: middle;
+}
+.material-icons img { width: 100%; height: 100%; display: block; object-fit: contain; }
+.material-icons.icon-missing { width: auto; height: auto; font-size: var(--icon-fallback-size); font-weight: 700; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
